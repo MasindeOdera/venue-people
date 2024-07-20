@@ -1,12 +1,12 @@
 <template>
-  <button class="btn" :class="classList" @click="$emit('click')">
+  <button :class="['btn', buttonType, classList]" @click="handleClick">
     <Icon v-if="icon" :icon="icon" />
     <span><slot></slot></span>
   </button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import Icon from "@/components/Icon.vue";
 
 export default defineComponent({
@@ -22,6 +22,15 @@ export default defineComponent({
       type: String,
       default: "",
     },
+    buttonType: {
+      type: String as PropType<"white-on-black" | "black-on-white">,
+      default: "primary",
+    },
+  },
+  methods: {
+    handleClick(event: Event) {
+      this.$emit("click", event);
+    },
   },
 });
 </script>
@@ -33,7 +42,30 @@ export default defineComponent({
   border-radius: 5px;
   cursor: pointer;
 }
+
 .btn .material-icons {
   margin-right: 8px; /* Adjust spacing as needed */
+}
+
+.white-on-black {
+  width: 178px;
+  height: 48px;
+  padding: 4px 24px;
+  border-radius: 999px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  background: #000000;
+  color: #ffffff;
+}
+
+.black-on-white {
+  width: 178px;
+  height: 48px;
+  padding: 4px 24px;
+  border-radius: 999px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  background: #efefef;
+  color: #000000;
 }
 </style>

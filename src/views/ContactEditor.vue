@@ -18,10 +18,12 @@
         <FormKit type="text" label="Postal Code" v-model="user.postalCode" />
         <FormKit type="text" label="Country" v-model="user.country" />
         <div>
-          <Button classList="btn-primary" type="submit" icon="send"
+          <Button buttonType="black-on-white" @click="cancelEdit"
+            >Cancel</Button
+          >
+          <Button buttonType="white-on-black" type="submit"
             >Save changes</Button
           >
-          <Button classList="btn-secondary" @click="cancelEdit">Cancel</Button>
         </div>
       </form>
     </div>
