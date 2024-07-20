@@ -1,5 +1,5 @@
 <template>
-  <div class="user-card">
+  <div class="user-card" @click="navigateToEditor">
     <img :src="user.image" alt="Avatar" class="avatar" />
     <div class="user-name">
       <h3 class="normal-prominent">{{ user.displayName }}</h3>
@@ -21,19 +21,21 @@
         class="normal-prominent"
         :class="['team-color', `team-color-${teamId}`]"
         :style="{ backgroundColor: getTeamColor(teamId) }"
-        >{{ getTeamLetter(teamId) }}</span
       >
+        {{ getTeamLetter(teamId) }}
+      </span>
     </div>
     <Button
       classList="btn-primary"
       icon="delete"
-      @click="handleDelete"
+      @click.stop="handleDelete"
     ></Button>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
+import { useRouter } from "vue-router";
 import { User } from "@/types/User";
 import { Team } from "@/types/Team";
 import Button from "@/components/Button.vue";
@@ -51,17 +53,28 @@ export default defineComponent({
       required: true,
     },
   },
+  setup(props) {
+    const router = useRouter();
+
+    const navigateToEditor = () => {
+      router.push({ name: "ContactEditor", params: { id: props.user.id } });
+    };
+
+    const getTeamColor = (teamId: number): string => {
+      const team = props.teams.find((team) => team.id === teamId);
+      return team ? team.color : "#000000"; // Default to black if team not found.
+    };
+
+    const getTeamLetter = (teamId: number): string => {
+      const team = props.teams.find((team) => team.id === teamId);
+      return team ? team.abbreviation : ""; // Display abbreviation in team circle.
+    };
+
+    return { navigateToEditor, getTeamColor, getTeamLetter };
+  },
   methods: {
     handleDelete() {
       this.$emit("delete", this.user.id);
-    },
-    getTeamColor(teamId: number): string {
-      const team = this.teams.find((team) => team.id === teamId);
-      return team ? team.color : "#000000"; // Default to black if team not found.
-    },
-    getTeamLetter(teamId: number): string {
-      const team = this.teams.find((team) => team.id === teamId);
-      return team ? team.abbreviation : ""; // Display abbreviation in team circle.
     },
   },
 });
@@ -73,6 +86,7 @@ export default defineComponent({
   align-items: center;
   border-bottom: 1px solid #d2d2d2;
   padding: 10px;
+  cursor: pointer; /* Add cursor pointer to indicate clickable area */
 
   .avatar {
     width: 50px;
