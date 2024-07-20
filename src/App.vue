@@ -1,7 +1,8 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/venue-people">Venue People</router-link> |
+    <router-link to="/contacts/edit/:id?">Contact Editor</router-link>
   </nav>
   <router-view />
 </template>

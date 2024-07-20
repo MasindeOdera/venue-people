@@ -1,0 +1,59 @@
+// Font Imports
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@600&family=Space+Grotesk:wght@300;500&display=swap');
+
+// Base styles
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+  background-color: #E2E2E2;
+}
+
+// Title styles
+.h1-title {
+  font-family: 'Cormorant Infant', serif;
+  font-size: 44.98px;
+  font-weight: 600;
+  line-height: 53.98px;
+  letter-spacing: -1.5px;
+  text-align: left;
+}
+
+// Section header styles
+.big-prominent {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15.93px;
+  font-weight: 500;
+  line-height: 23.9px;
+  text-align: left;
+}
+
+// Button and link styles
+.normal-underline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: center;
+}
+
+// Section title styles
+.tiny-thin {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12.29px;
+  font-weight: 300;
+  line-height: 18.44px;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+// User display name styles
+.normal-prominent {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: left;
+}
