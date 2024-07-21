@@ -19,6 +19,12 @@
           label="Initials"
           placeholder="FIrst letters of your names"
           v-model="user.initials"
+          validation="required|regex:/^[A-Z]{1,4}$/"
+          :validation-messages="{
+            required: 'Initials are required',
+            regex: 'Initials must be 1 to 4 uppercase letters',
+          }"
+          validation-visibility="dirty"
         />
         <FormKit
           class="full"
@@ -34,18 +40,29 @@
           placeholder="What is your function?"
           v-model="user.functionName"
         />
-        <FormKit class="half" type="email" label="Email" v-model="user.email" />
+        <FormKit
+          class="half"
+          type="email"
+          label="Email"
+          v-model="user.email"
+          validation="required|email"
+          :validation-messages="{
+            required: 'Email is required',
+            email: 'Email must be a valid email address',
+          }"
+          validation-visibility="dirty"
+        />
         <FormKit
           class="half"
           type="tel"
           label="Phone number"
           placeholder="xxx-xxx-xxxx"
+          v-model="user.phoneNumber"
           validation="matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/"
           :validation-messages="{
             matches: 'Phone number must be in the format xxx-xxx-xxxx',
           }"
           validation-visibility="dirty"
-          v-model="user.phoneNumber"
         />
         <FormKit
           class="full"
