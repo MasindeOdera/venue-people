@@ -12,7 +12,6 @@
         v-for="user in users"
         :key="user.id"
         :user="user"
-        :teams="teams"
         @delete="deleteUser"
       />
     </div>
@@ -26,6 +25,7 @@ import UserCard from "@/components/UserCard.vue";
 import TeamBadge from "@/components/TeamBadge.vue";
 import Icon from "@/components/Icon.vue";
 import UserService from "@/services/UserService";
+import TeamService from "@/services/TeamService";
 import { User } from "@/types/User";
 import { Team } from "@/types/Team";
 
@@ -47,7 +47,7 @@ export default defineComponent({
 
     const fetchTeams = async () => {
       try {
-        const data = await UserService.getTeams();
+        const data = await TeamService.getTeams();
         teams.value = data;
       } catch (error) {
         console.error("Failed to fetch teams:", error);
@@ -63,9 +63,23 @@ export default defineComponent({
       }
     };
 
-    onMounted(() => {
-      fetchUsers();
-      fetchTeams();
+    // onMounted(async () => {
+    //   users.value = await UserService.getUsers();
+    //   teams.value = await TeamService.getTeams(); // Ensure this fetches the correct data
+    // });
+    // onMounted(async () => {
+    //   try {
+    //     users.value = await UserService.getUsers();
+    //     teams.value = await TeamService.getTeams();
+    //     console.error("Users value: ", users.value);
+    //     console.error("Teams value: ", teams.value);
+    //   } catch (error) {
+    //     console.error("Error loading data:", error);
+    //   }
+    // });
+    onMounted(async () => {
+      await fetchUsers();
+      await fetchTeams();
     });
 
     return { users, teams, deleteUser };

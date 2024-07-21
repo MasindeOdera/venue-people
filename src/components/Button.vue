@@ -48,8 +48,8 @@ export default defineComponent({
 }
 
 .white-on-black {
-  width: 178px;
-  height: 48px;
+  width: 148px;
+  height: 40px;
   padding: 4px 24px;
   border-radius: 999px;
   border: 1px 0px 0px 0px;
@@ -59,8 +59,8 @@ export default defineComponent({
 }
 
 .black-on-white {
-  width: 178px;
-  height: 48px;
+  width: 148px;
+  height: 40px;
   padding: 4px 24px;
   border-radius: 999px;
   border: 1px 0px 0px 0px;

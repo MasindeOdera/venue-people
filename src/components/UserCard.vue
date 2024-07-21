@@ -1,5 +1,5 @@
 <template>
-  <div class="user-card" @click="navigateToEditor">
+  <div v-if="!loading" class="user-card" @click="navigateToEditor">
     <img :src="user.image" alt="Avatar" class="avatar" />
     <div class="user-name">
       <h3 class="normal-prominent">{{ user.displayName }}</h3>
@@ -34,8 +34,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent, ref, onMounted, PropType } from "vue";
 import { useRouter } from "vue-router";
+import TeamService from "@/services/TeamService";
 import { User } from "@/types/User";
 import { Team } from "@/types/Team";
 import Button from "@/components/Button.vue";
@@ -48,34 +49,58 @@ export default defineComponent({
       type: Object as PropType<User>,
       required: true,
     },
-    teams: {
-      type: Array as PropType<Team[]>,
-      required: true,
-    },
   },
-  setup(props) {
+  setup(props, { emit }) {
     const router = useRouter();
+    const teams = ref<Team[]>([]);
+    const loading = ref(true); // Loading state
 
     const navigateToEditor = () => {
       router.push({ name: "ContactEditor", params: { id: props.user.id } });
     };
 
+    const fetchTeams = async () => {
+      try {
+        const data = await TeamService.getTeams();
+        // Convert team IDs from strings to numbers
+        teams.value = data.map((team: { id: string }) => ({
+          ...team,
+          id: parseInt(team.id, 10), // Ensure the id is a number
+        }));
+      } catch (error) {
+        console.error("Failed to fetch teams:", error);
+      } finally {
+        loading.value = false; // Set loading to false once fetch is complete
+      }
+    };
+
     const getTeamColor = (teamId: number): string => {
-      const team = props.teams.find((team) => team.id === teamId);
+      const team = teams.value.find((team) => team.id === teamId);
       return team ? team.color : "#000000"; // Default to black if team not found.
     };
 
     const getTeamLetter = (teamId: number): string => {
-      const team = props.teams.find((team) => team.id === teamId);
-      return team ? team.abbreviation : ""; // Display abbreviation in team circle.
+      const team = teams.value.find((team) => team.id === teamId);
+      return team ? team.abbreviation : ""; // Display abbreviation in team circle. Or nothing, mwhahahaha!
     };
 
-    return { navigateToEditor, getTeamColor, getTeamLetter };
-  },
-  methods: {
-    handleDelete() {
-      this.$emit("delete", this.user.id);
-    },
+    const handleDelete = () => {
+      // Emit delete event
+      emit("delete", props.user.id);
+    };
+
+    onMounted(async () => {
+      await fetchTeams(); // Fetch teams data on mount
+    });
+
+    return {
+      navigateToEditor,
+      getTeamColor,
+      getTeamLetter,
+      handleDelete,
+      teams,
+      loading,
+    };
   },
 });
 </script>

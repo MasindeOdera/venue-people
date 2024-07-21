@@ -1,23 +1,68 @@
 <template>
   <div>
-    <h1>Contact Editor</h1>
     <div v-if="loading">Loading...</div>
     <!-- Needed to display while data is being fetched -->
-    <div v-else>
+    <div class="contact-edit" v-else>
       <!-- This ensures that the data is only displayed when not loading -->
       <img :src="user.image" alt="Avatar" class="avatar" />
       <form @submit.prevent="saveUser">
-        <FormKit type="text" label="Full Name" v-model="user.fullName" />
-        <FormKit type="text" label="Initials" v-model="user.initials" />
-        <FormKit type="text" label="Display Name" v-model="user.displayName" />
-        <FormKit type="text" label="Role" v-model="user.functionName" />
-        <FormKit type="email" label="Email" v-model="user.email" />
-        <FormKit type="text" label="Phone Number" v-model="user.phoneNumber" />
-        <FormKit type="text" label="Street" v-model="user.street" />
-        <FormKit type="text" label="City" v-model="user.city" />
-        <FormKit type="text" label="Postal Code" v-model="user.postalCode" />
-        <FormKit type="text" label="Country" v-model="user.country" />
-        <div>
+        <FormKit
+          input-class="half"
+          type="text"
+          label="Full name *"
+          v-model="user.fullName"
+        />
+        <FormKit
+          class="half"
+          type="text"
+          label="Initials"
+          v-model="user.initials"
+        />
+        <FormKit
+          class="full"
+          type="text"
+          label="Display name"
+          v-model="user.displayName"
+        />
+        <FormKit
+          class="full"
+          type="text"
+          label="Role"
+          v-model="user.functionName"
+        />
+        <FormKit class="half" type="email" label="Email" v-model="user.email" />
+        <FormKit
+          class="half"
+          type="text"
+          label="Phone number"
+          v-model="user.phoneNumber"
+        />
+        <FormKit
+          class="full"
+          type="text"
+          label="Street"
+          v-model="user.addressLineOne"
+        />
+        <FormKit
+          class="full"
+          type="text"
+          label=""
+          v-model="user.addressLineTwo"
+        />
+        <FormKit class="half" type="text" label="City" v-model="user.city" />
+        <FormKit
+          class="half"
+          type="text"
+          label="Postal code"
+          v-model="user.postalCode"
+        />
+        <FormKit
+          class="full"
+          type="text"
+          label="Country"
+          v-model="user.country"
+        />
+        <div class="cta">
           <Button buttonType="black-on-white" @click="cancelEdit"
             >Cancel</Button
           >
@@ -87,12 +132,56 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: block;
-  margin-bottom: 20px;
+<style lang="scss" scoped>
+.contact-edit {
+  display: flex;
+  justify-content: space-evenly;
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  form {
+    width: 60%;
+
+    .formkit-input {
+      margin-bottom: 16px; // Add some spacing between fields
+    }
+
+    .formkit-input.full {
+      width: 100%;
+    }
+
+    .formkit-input.half {
+      width: 50%;
+    }
+
+    .formkit-outer {
+      text-align: left;
+
+      .formkit-wrapper {
+        .formkit-inner {
+          .formkit-input {
+            &.full {
+              width: 100%;
+            }
+            &.half {
+              width: 50%;
+            }
+          }
+        }
+      }
+    }
+
+    .cta {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 32px;
+    }
+  }
 }
 </style>
