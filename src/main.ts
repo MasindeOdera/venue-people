@@ -5,5 +5,6 @@ import router from "./router";
 import store from "./store";
 import { plugin, defaultConfig } from "@formkit/vue";
 import "./assets/styles/global.scss";
+import "./assets/styles/formkit-theme.css";
 
 createApp(App).use(store).use(router).use(plugin, defaultConfig).mount("#app");

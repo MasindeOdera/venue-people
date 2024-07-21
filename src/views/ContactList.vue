@@ -63,20 +63,6 @@ export default defineComponent({
       }
     };
 
-    // onMounted(async () => {
-    //   users.value = await UserService.getUsers();
-    //   teams.value = await TeamService.getTeams(); // Ensure this fetches the correct data
-    // });
-    // onMounted(async () => {
-    //   try {
-    //     users.value = await UserService.getUsers();
-    //     teams.value = await TeamService.getTeams();
-    //     console.error("Users value: ", users.value);
-    //     console.error("Teams value: ", teams.value);
-    //   } catch (error) {
-    //     console.error("Error loading data:", error);
-    //   }
-    // });
     onMounted(async () => {
       await fetchUsers();
       await fetchTeams();

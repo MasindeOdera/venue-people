@@ -1,0 +1,86 @@
+.formkit-input {
+    padding: 12px;
+    margin-bottom: 16px;
+    background-color: #E2E2E2;
+    border: 1px solid #d2d2d2;
+    border-radius: 4px;
+  }
+  
+  .formkit-label {
+    display: flex;
+    font-size: 12.29px;
+    font-weight: 300;
+    line-height: 18.44px;
+    letter-spacing: 0.5px;
+    text-align: left;
+  }
+  
+  .formkit-outer {
+    /* margin-bottom: 24px; */
+  }
+
+  .formkit-outer.one-fifth {
+    width: 10%;
+  }
+
+  .formkit-outer.four-fifth {
+    width: 40%;
+  }
+
+  .formkit-inner {
+    display: flex;
+  }
+
+  .formkit-input.full {
+    width: 100%;
+  }
+
+  .formkit-input.half {
+    width: 50%;
+  }
+
+  .formkit-input.fifty-percent {
+    width: 50%;
+  }
+
+  .formkit-input.quarter {
+    width: 45%;
+  }
+
+  .formkit-input.three-quarter {
+    width: 75%;
+  }
+
+  .formkit-input.small {
+    width: 20%;
+    margin-right: 8px;
+  }
+
+  .formkit-input.white-background {
+    background-color: #FFFFFF;
+  }
+
+  .formkit-outer.full {
+    width: 100%;
+  }
+
+  .formkit-outer.shared-row {
+    width: 49%;
+  }
+
+  .formkit-outer.margin-right {
+    margin-right: 10px;
+  }
+
+  .formkit-outer.margin-left {
+    margin-left: 10px;
+  }
+
+  /* Remove the LastPass */
+  .formkit-inner > div {
+    display: none;
+  }
+
+  .formkit-input.two-digits {
+    width: 16%;
+  }
