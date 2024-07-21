@@ -10,24 +10,28 @@
           input-class="half"
           type="text"
           label="Full name *"
+          placeholder="First & last name"
           v-model="user.fullName"
         />
         <FormKit
           class="half"
           type="text"
           label="Initials"
+          placeholder="FIrst letters of your names"
           v-model="user.initials"
         />
         <FormKit
           class="full"
           type="text"
           label="Display name"
+          placeholder="Name you go by"
           v-model="user.displayName"
         />
         <FormKit
           class="full"
           type="text"
           label="Role"
+          placeholder="What is your function?"
           v-model="user.functionName"
         />
         <FormKit class="half" type="email" label="Email" v-model="user.email" />
