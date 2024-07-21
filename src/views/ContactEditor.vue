@@ -41,26 +41,31 @@
           class="full"
           type="text"
           label="Street"
-          v-model="user.addressLineOne"
+          v-model="user.address.addressLineOne"
         />
         <FormKit
           class="full"
           type="text"
           label=""
-          v-model="user.addressLineTwo"
+          v-model="user.address.addressLineTwo"
         />
-        <FormKit class="half" type="text" label="City" v-model="user.city" />
+        <FormKit
+          class="half"
+          type="text"
+          label="City"
+          v-model="user.address.city"
+        />
         <FormKit
           class="half"
           type="text"
           label="Postal code"
-          v-model="user.postalCode"
+          v-model="user.address.postalCode"
         />
         <FormKit
           class="full"
           type="text"
           label="Country"
-          v-model="user.country"
+          v-model="user.address.country"
         />
         <div class="cta">
           <Button buttonType="black-on-white" @click="cancelEdit"
