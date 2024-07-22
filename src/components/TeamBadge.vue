@@ -32,6 +32,7 @@ export default defineComponent({
   padding: 16px 8px;
   background-color: #efefef;
   margin-right: 8px;
+  margin-bottom: 10px;
 
   .color-circle {
     width: 44px;

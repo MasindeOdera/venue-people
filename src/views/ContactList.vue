@@ -101,7 +101,7 @@ export default defineComponent({
 
   .teams-section {
     display: flex;
-    margin-bottom: 10px;
+    flex-wrap: wrap;
   }
 
   .list {
