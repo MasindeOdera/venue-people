@@ -10,7 +10,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@formkit/addons": "^1.6.5",
     "@formkit/core": "^1.6.5",
+    "@formkit/rules": "^1.6.5",
     "@formkit/vue": "^1.6.5",
     "@mdi/font": "^7.4.47",
     "axios": "^1.7.2",
