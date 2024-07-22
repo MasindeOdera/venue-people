@@ -14,10 +14,15 @@
     <div class="user-role">
       <p>{{ user.functionName }}</p>
     </div>
-    <div class="user-email">
+    <div class="user-email" @click.stop="copyToClipboard(user.email)">
       <p>{{ user.email }}</p>
     </div>
-    <div class="user-phone">
+    <div
+      class="user-phone"
+      @click.stop="
+        copyToClipboard(user.phoneCountryPrefix + ' ' + user.phoneNumber)
+      "
+    >
       <p>{{ user.phoneCountryPrefix }} {{ user.phoneNumber }}</p>
     </div>
     <div class="user-team">
@@ -96,6 +101,16 @@ export default defineComponent({
       emit("delete", props.user.id);
     };
 
+    const copyToClipboard = async (text: string) => {
+      try {
+        await navigator.clipboard.writeText(text);
+        console.log(`Copied to clipboard: ${text}`);
+        // Optionally show a success message to the user
+      } catch (err) {
+        console.error("Failed to copy: ", err);
+      }
+    };
+
     onMounted(async () => {
       await fetchTeams(); // Fetch teams data on mount
     });
@@ -105,6 +120,7 @@ export default defineComponent({
       getTeamColor,
       getTeamLetter,
       handleDelete,
+      copyToClipboard,
       teams,
       loading,
     };
@@ -133,14 +149,11 @@ export default defineComponent({
     padding-right: 5%;
   }
 
-  .user-email {
-    width: 180px;
-    padding-right: 5%;
-  }
-
+  .user-email,
   .user-phone {
     width: 180px;
     padding-right: 5%;
+    cursor: pointer;
   }
 
   .user-team {

@@ -257,28 +257,18 @@ export default defineComponent({
       display: flex;
       align-items: center;
 
-      // .phone-prefix,
-      // .phone-number {
-      //   margin: 0;
-      // }
+      .phone-prefix,
+      .phone-number {
+        margin: 0;
+      }
 
-      // .phone-prefix {
-      //   flex: 0 0 auto;
-      //   width: 50px;
-      // }
-
-      // .phone-number {
-      //   flex: 1;
-      // }
       .phone-prefix {
         flex: 0 0 auto;
-        width: 80px; /* Adjusted width */
-        margin-right: 10px;
+        width: 50px;
       }
 
       .phone-number {
-        flex: 1; /* Takes remaining space */
-        margin: 0;
+        flex: 1;
       }
     }
 
