@@ -23,7 +23,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .team-badge {
   display: flex;
   align-items: flex-start;
@@ -46,6 +46,12 @@ export default defineComponent({
     margin-left: auto;
     padding-right: 10px;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 390px) {
+  .team-badge {
+    width: -webkit-fill-available;
   }
 }
 </style>

@@ -293,4 +293,12 @@ export default defineComponent({
     }
   }
 }
+
+@media (max-width: 390px) {
+  .contact-edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 </style>

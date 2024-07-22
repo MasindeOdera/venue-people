@@ -1,0 +1,22 @@
+$breakpoint-small: 380px;
+$breakpoint-small-plus: $breakpoint-small + 1px;
+$breakpoint-medium: 900px;
+$breakpoint-medium-plus: $breakpoint-medium + 1px;
+
+@mixin small-only {
+  @media (max-width: $breakpoint-small) {
+    @content;
+  }
+}
+
+@mixin medium-only {
+  @media (min-width: $breakpoint-small-plus) and (max-width: $breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin large-only {
+  @media (min-width: $breakpoint-medium-plus) {
+    @content;
+  }
+}

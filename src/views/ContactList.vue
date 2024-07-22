@@ -77,6 +77,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/styles/breakpoints.scss";
+
 .contact-category {
   margin: auto 20px;
 
