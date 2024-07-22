@@ -106,7 +106,7 @@
               placeholder="+31"
               label="Phone"
               v-model="user.phonePrefix"
-              validation="required|regex:/^[+][0-9]+$/"
+              validation="required|regex:/^[+][0-9]{2}$/"
               :validation-messages="{
                 required: 'Prefix is required',
                 regex: 'Prefix must be a valid number with a + sign',
