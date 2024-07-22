@@ -213,10 +213,13 @@ export default defineComponent({
           displayName: "",
           functionName: "",
           phoneNumber: "",
-          street: "",
-          city: "",
-          postalCode: "",
-          country: "",
+          address: {
+            addressLineOne: "",
+            addressLineTwo: "",
+            city: "",
+            postalCode: "",
+            country: "",
+          },
           image: "https://avatar.iran.liara.run/public",
         };
       }

@@ -105,7 +105,7 @@ export default defineComponent({
       try {
         await navigator.clipboard.writeText(text);
         console.log(`Copied to clipboard: ${text}`);
-        // Optionally show a success message to the user
+        // Optionally show a success message to the user, if there is time.
       } catch (err) {
         console.error("Failed to copy: ", err);
       }

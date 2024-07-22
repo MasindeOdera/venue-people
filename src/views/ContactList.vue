@@ -15,7 +15,10 @@
         @delete="deleteUser"
       />
     </div>
-    <div class="new"><Icon icon="add" /> <a href="/">New User</a></div>
+    <div class="new">
+      <Icon icon="add" />
+      <router-link to="/contacts/edit">New User</router-link>
+    </div>
   </div>
 </template>
 
