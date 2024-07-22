@@ -96,7 +96,25 @@
   align-items: center;
 }
 
+/* .formkit-group-inner {
+  display: flex;
+  align-items: center;
+} */
+
 .formkit-group-inner {
   display: flex;
   align-items: center;
+  width: 100%; /* Ensure it uses full width */
+}
+
+.formkit-input.phone-input {
+  flex: 1; /* Make sure phone input takes up available space */
+}
+
+.formkit-outer.phone-prefix {
+  margin-right: 0; /* Adjust margin as needed */
+}
+
+.formkit-outer.phone-number {
+  flex: 1; /* Allow it to grow */
 }

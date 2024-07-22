@@ -64,25 +64,27 @@ export default defineComponent({
 <style scoped lang="scss">
 .avatar-container {
   position: relative;
-  border-radius: 50%;
-  overflow: hidden;
 }
 
 .avatar-img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  border: 1px solid #000000;
   object-fit: cover;
 }
 
 .avatar-icon {
   position: absolute;
   bottom: 5px;
-  right: 5px;
-  background: rgba(255, 255, 255, 0.6);
+  right: -5px;
+  background: #ffffff;
+  border: 1px solid #000000;
   border-radius: 50%;
   padding: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 </style>

@@ -6,12 +6,16 @@
       <!-- This ensures that the data is only displayed when not loading -->
       <Avatar
         :src="user.image"
-        width="100px"
-        height="100px"
+        width="72px"
+        height="72px"
         display="block"
-        margin-bottom="20px"
+        margin-right="40px"
         :showIcon="true"
-      />
+      >
+        <template #icon>
+          <Icon icon="edit_note" />
+        </template>
+      </Avatar>
       <form @submit.prevent="saveUser">
         <div class="name-group">
           <FormKit
@@ -186,10 +190,11 @@ import FormKit from "@formkit/vue";
 import UserService from "@/services/UserService";
 import Button from "@/components/Button.vue";
 import Avatar from "@/components/Avatar.vue";
+import Icon from "@/components/Icon.vue";
 
 export default defineComponent({
   name: "ContactEditor",
-  components: { FormKit, Button, Avatar },
+  components: { FormKit, Button, Avatar, Icon },
   setup() {
     const route = useRoute();
     const router = useRouter();
@@ -243,7 +248,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .contact-edit {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 
   form {
     width: 60%;
@@ -252,18 +257,28 @@ export default defineComponent({
       display: flex;
       align-items: center;
 
-      .phone-prefix,
-      .phone-number {
-        margin: 0;
-      }
+      // .phone-prefix,
+      // .phone-number {
+      //   margin: 0;
+      // }
 
+      // .phone-prefix {
+      //   flex: 0 0 auto;
+      //   width: 50px;
+      // }
+
+      // .phone-number {
+      //   flex: 1;
+      // }
       .phone-prefix {
         flex: 0 0 auto;
-        width: 50px;
+        width: 80px; /* Adjusted width */
+        margin-right: 10px;
       }
 
       .phone-number {
-        flex: 1;
+        flex: 1; /* Takes remaining space */
+        margin: 0;
       }
     }
 
