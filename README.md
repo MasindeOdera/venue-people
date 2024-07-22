@@ -1,4 +1,4 @@
-# my-project
+# venue-people
 
 ## Project setup
 ```
@@ -10,25 +10,15 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Start the JSON Server
 ```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
+json-server --watch db.json
 ```
 
-### Run your end-to-end tests
+### If you have issues with that:
 ```
-npm run test:e2e
-```
-
-### Lints and fixes files
-```
-npm run lint
+npm install -g json-server
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This is a slimmed down replica of a Frontend view used, not a finished version due to time constraints.
+Don't forget to start the JSON Server after npm run serve.

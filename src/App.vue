@@ -4,8 +4,21 @@
     <router-link to="/venue-people">Venue People</router-link> |
     <router-link to="/contacts/edit/:id?">Contact Editor</router-link>
   </nav>
+  <!-- <VerticalMenu /> -->
   <router-view />
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import VerticalMenu from "@/components/VerticalMenu.vue";
+
+export default defineComponent({
+  name: "App",
+  // components: {
+  //   VerticalMenu,
+  // },
+});
+</script>
 
 <style lang="scss">
 #app {
