@@ -52,48 +52,70 @@
           placeholder="What is your function?"
           v-model="user.functionName"
         />
-        <FormKit
-          input-class="half"
-          type="email"
-          label="Email"
-          v-model="user.email"
-          validation="required|email"
-          :validation-messages="{
-            required: 'Email is required',
-            email: 'Email must be a valid email address',
-          }"
-          validation-visibility="dirty"
-        />
-        <div class="phone-number-group">
+        <div class="contact-info">
           <FormKit
-            outer-class="one-fifth"
-            :input-class="{
-              'white-background': true,
-              'fifty-percent': true,
+            input-class="full"
+            :outer-class="{
+              'shared-row': true,
+              'margin-left': false,
+              'margin-right': true,
             }"
-            type="text"
-            label="Prefix"
-            placeholder="+32"
-            v-model="user.phonePrefix"
-            validation="required|regex:/^[+][0-9]+$/"
+            type="email"
+            label="Email"
+            v-model="user.email"
+            validation="required|email"
             :validation-messages="{
-              required: 'Prefix is required',
-              regex: 'Prefix must be a valid number with a + sign',
+              required: 'Email is required',
+              email: 'Email must be a valid email address',
             }"
             validation-visibility="dirty"
           />
           <FormKit
-            outer-class="shared-row"
-            type="tel"
-            label="Phone number"
-            placeholder="xxx-xxx-xxxx"
-            v-model="user.phoneNumber"
-            validation="matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/"
-            :validation-messages="{
-              matches: 'Phone number must be in the format xxx-xxx-xxxx',
+            type="group"
+            :config="{
+              classes: {
+                outer: 'formkit-group-outer',
+                inner: 'formkit-group-inner',
+                label: 'formkit-group-label',
+              },
             }"
-            validation-visibility="dirty"
-          />
+            :outer-class="{
+              'shared-row': true,
+              'margin-left': true,
+              'margin-right': false,
+            }"
+          >
+            <FormKit
+              outer-class="phone-prefix"
+              :input-class="{
+                'white-background': true,
+                'prefix-input': true,
+              }"
+              type="text"
+              placeholder="+32"
+              label="Phone"
+              v-model="user.phonePrefix"
+              validation="required|regex:/^[+][0-9]+$/"
+              :validation-messages="{
+                required: 'Prefix is required',
+                regex: 'Prefix must be a valid number with a + sign',
+              }"
+              validation-visibility="dirty"
+            />
+            <FormKit
+              outer-class="phone-number"
+              input-class="phone-input"
+              type="tel"
+              label="number"
+              placeholder="xxx-xxx-xxxx"
+              v-model="user.phoneNumber"
+              validation="matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/"
+              :validation-messages="{
+                matches: 'Phone number must be in the format xxx-xxx-xxxx',
+              }"
+              validation-visibility="dirty"
+            />
+          </FormKit>
         </div>
         <FormKit
           input-class="full"
@@ -226,9 +248,28 @@ export default defineComponent({
   form {
     width: 60%;
 
-    .phone-number-group,
+    .phone-number-group {
+      display: flex;
+      align-items: center;
+
+      .phone-prefix,
+      .phone-number {
+        margin: 0;
+      }
+
+      .phone-prefix {
+        flex: 0 0 auto;
+        width: 50px;
+      }
+
+      .phone-number {
+        flex: 1;
+      }
+    }
+
     .name-group,
-    .address-group {
+    .address-group,
+    .contact-info {
       display: flex;
     }
 

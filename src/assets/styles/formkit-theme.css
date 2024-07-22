@@ -1,86 +1,102 @@
 .formkit-input {
-    padding: 12px;
-    margin-bottom: 16px;
-    background-color: #E2E2E2;
-    border: 1px solid #d2d2d2;
-    border-radius: 4px;
-  }
-  
-  .formkit-label {
-    display: flex;
-    font-size: 12.29px;
-    font-weight: 300;
-    line-height: 18.44px;
-    letter-spacing: 0.5px;
-    text-align: left;
-  }
-  
-  .formkit-outer {
-    /* margin-bottom: 24px; */
-  }
+  padding: 12px;
+  margin-bottom: 16px;
+  background-color: #E2E2E2;
+  border: 1px solid #d2d2d2;
+  border-radius: 4px;
+}
 
-  .formkit-outer.one-fifth {
-    width: 10%;
-  }
+.formkit-label {
+  display: flex;
+  font-size: 12.29px;
+  font-weight: 300;
+  line-height: 18.44px;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
 
-  .formkit-outer.four-fifth {
-    width: 40%;
-  }
+.formkit-outer.one-fifth {
+  width: 10%;
+}
 
-  .formkit-inner {
-    display: flex;
-  }
+.formkit-outer.four-fifth {
+  width: 40%;
+}
 
-  .formkit-input.full {
-    width: 100%;
-  }
+.formkit-inner {
+  display: flex;
+}
 
-  .formkit-input.half {
-    width: 50%;
-  }
+.formkit-input.full {
+  width: 100%;
+}
 
-  .formkit-input.fifty-percent {
-    width: 50%;
-  }
+.formkit-input.half {
+  width: 50%;
+}
 
-  .formkit-input.quarter {
-    width: 45%;
-  }
+.formkit-input.fifty-percent {
+  width: 50%;
+}
 
-  .formkit-input.three-quarter {
-    width: 75%;
-  }
+.formkit-input.quarter {
+  width: 45%;
+}
 
-  .formkit-input.small {
-    width: 20%;
-    margin-right: 8px;
-  }
+.formkit-input.three-quarter {
+  width: 75%;
+}
 
-  .formkit-input.white-background {
-    background-color: #FFFFFF;
-  }
+.formkit-input.small {
+  width: 20%;
+  margin-right: 8px;
+}
 
-  .formkit-outer.full {
-    width: 100%;
-  }
+.formkit-input.white-background {
+  background-color: #FFFFFF;
+}
 
-  .formkit-outer.shared-row {
-    width: 49%;
-  }
+.formkit-outer.full {
+  width: 100%;
+}
 
-  .formkit-outer.margin-right {
-    margin-right: 10px;
-  }
+.formkit-outer.shared-row {
+  width: 49%;
+}
 
-  .formkit-outer.margin-left {
-    margin-left: 10px;
-  }
+.formkit-outer.margin-right {
+  margin-right: 10px;
+}
 
-  /* Remove the LastPass */
-  .formkit-inner > div {
-    display: none;
-  }
+.formkit-outer.margin-left {
+  margin-left: 10px;
+}
 
-  .formkit-input.two-digits {
-    width: 16%;
-  }
+/* Remove the LastPass */
+.formkit-inner > div {
+  display: none;
+}
+
+.formkit-input.prefix-input {
+  width: 28px;
+  z-index: 1;
+}
+
+.formkit-outer.phone-prefix,
+.formkit-outer.phone-number {
+  margin: 0;
+}
+
+.formkit-outer.phone-prefix {
+  margin-right: 0;
+}
+
+.formkit-group-outer {
+  display: flex;
+  align-items: center;
+}
+
+.formkit-group-inner {
+  display: flex;
+  align-items: center;
+}
