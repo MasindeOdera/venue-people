@@ -1,6 +1,12 @@
 <template>
   <div v-if="!loading" class="user-card" @click="navigateToEditor">
-    <img :src="user.image" alt="Avatar" class="avatar" />
+    <Avatar
+      :src="user.image"
+      width="50px"
+      height="50px"
+      display="flex"
+      margin-right="10px"
+    />
     <div class="user-name">
       <h3 class="normal-prominent">{{ user.displayName }}</h3>
       <p class="tiny-thin">{{ user.fullName }}</p>
@@ -40,10 +46,11 @@ import TeamService from "@/services/TeamService";
 import { User } from "@/types/User";
 import { Team } from "@/types/Team";
 import Button from "@/components/Button.vue";
+import Avatar from "./Avatar.vue";
 
 export default defineComponent({
   name: "UserCard",
-  components: { Button },
+  components: { Button, Avatar },
   props: {
     user: {
       type: Object as PropType<User>,
@@ -112,13 +119,6 @@ export default defineComponent({
   border-bottom: 1px solid #d2d2d2;
   padding: 10px;
   cursor: pointer; /* Add cursor pointer to indicate clickable area */
-
-  .avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
 
   .user-name {
     display: flex;

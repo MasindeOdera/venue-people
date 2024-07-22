@@ -34,7 +34,7 @@
       "displayName": "Merel",
       "initials": "MJ",
       "email": "mdj@venue.com",
-      "phoneNumber": "62272941",
+      "phoneNumber": "062 272 9041",
       "phoneCountryPrefix": "+31",
       "teamIds": [
         2,
@@ -197,7 +197,7 @@
   "teams": [
     {
       "iri": "/api/teams/1",
-      "id": 1,
+      "id": "1",
       "name": "Management",
       "color": "#FFC9C9",
       "abbreviation": "M",
@@ -205,7 +205,7 @@
     },
     {
       "iri": "/api/teams/2",
-      "id": 2,
+      "id": "2",
       "name": "Front of the house",
       "color": "#A5A4D4",
       "abbreviation": "F",
@@ -213,7 +213,7 @@
     },
     {
       "iri": "/api/teams/3",
-      "id": 3,
+      "id": "3",
       "name": "Back of the house",
       "color": "#C1E0B9",
       "abbreviation": "B",

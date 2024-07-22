@@ -4,7 +4,14 @@
     <!-- Needed to display while data is being fetched -->
     <div class="contact-edit" v-else>
       <!-- This ensures that the data is only displayed when not loading -->
-      <img :src="user.image" alt="Avatar" class="avatar" />
+      <Avatar
+        :src="user.image"
+        width="100px"
+        height="100px"
+        display="block"
+        margin-bottom="20px"
+        :showIcon="true"
+      />
       <form @submit.prevent="saveUser">
         <div class="name-group">
           <FormKit
@@ -92,7 +99,7 @@
                 'prefix-input': true,
               }"
               type="text"
-              placeholder="+32"
+              placeholder="+31"
               label="Phone"
               v-model="user.phonePrefix"
               validation="required|regex:/^[+][0-9]+$/"
@@ -178,10 +185,11 @@ import { useRoute, useRouter } from "vue-router";
 import FormKit from "@formkit/vue";
 import UserService from "@/services/UserService";
 import Button from "@/components/Button.vue";
+import Avatar from "@/components/Avatar.vue";
 
 export default defineComponent({
   name: "ContactEditor",
-  components: { FormKit, Button },
+  components: { FormKit, Button, Avatar },
   setup() {
     const route = useRoute();
     const router = useRouter();
@@ -236,14 +244,6 @@ export default defineComponent({
 .contact-edit {
   display: flex;
   justify-content: space-evenly;
-
-  .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: block;
-    margin-bottom: 20px;
-  }
 
   form {
     width: 60%;
